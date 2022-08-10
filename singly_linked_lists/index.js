@@ -41,17 +41,31 @@ class SingleLinkedList{
     if (!this.head){
       return null;
     }
+    // if list length > 0
     return this.head.data;
+  }
+
+  display() {
+    // if list is empty
+    if (!this.head){
+      return "";
+    }
+    // if list length > 0
+    let runner = this.head;
+    let values = this.head.data;
+    console.log(values);
+    while (runner.next){
+      runner = runner.next;
+      values = values + ", " + runner.data;
+      console.log(values);
+    }
+    return values;
   }
 
 }
 
-SLL1 = new SingleLinkedList()
+let SLL1 = new SingleLinkedList()
 console.log(SLL1.addFront(18));
 console.log(SLL1.addFront(5));
 console.log(SLL1.addFront(73));
-console.log(SLL1.removeFront());
-console.log(SLL1.removeFront());
-console.log(SLL1.front());
-console.log(SLL1.removeFront());
-console.log(SLL1.front());
+console.log(SLL1.display());
